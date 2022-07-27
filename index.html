@@ -45,12 +45,12 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <button class="btn btn-default"><i class="fas fa-minus" id="2ndMinus"></i></button>
                            <input type="number" min="0" class="form-control text-center" id="secondInputValue" value="1">
                            <button class="btn btn-default"><i class="fas fa-plus" id="2ndPlus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5>$ <span id="CasePrice">59</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -92,16 +92,61 @@
          const totalPrice1=document.getElementById("totalPrice").innerText;
          const totalPriceNumber1=parseFloat(totalPrice1);
 
+         const secondInputValue=document.getElementById("secondInputValue").value;
+         secondInputValueNumber=parseFloat(secondInputValue);
+
+         const CasePrice=document.getElementById("CasePrice").innerText;
+         const CasePriceNumber=parseFloat(CasePrice);
+
          const subtotal=document.getElementById("subtotal").innerText;
-         subtotalNumber=parseFloat(subtotal);
+         const subtotalNumber=parseFloat(subtotal);
 
          const tax=document.getElementById("tax").innerText;
 
          const total=document.getElementById("total").innerText;
 
          const newInputValue1=inputValue1Number1 +1;
+         const NewCasePrice=59*secondInputValueNumber;
          const newTotalPrice1=1219*newInputValue1;
-         const newSubTotal=newTotalPrice1;
+         const newSubTotal=newTotalPrice1 + NewCasePrice;
+         const newTax=newSubTotal*0.1;
+         const newTotal = newSubTotal + newTax;
+
+         document.getElementById("inputValue1").value=newInputValue1;
+         document.getElementById("totalPrice").innerText=newTotalPrice1;
+         document.getElementById("subtotal").innerText=newSubTotal;
+         document.getElementById("tax").innerText=newTax;
+         document.getElementById("total").innerText=newTotal;
+
+      })
+
+       // 1st phone input minus button handle
+
+       const FirstMinusButton=document.getElementById("minusButton");
+       FirstMinusButton.addEventListener("click",function(){
+         const inputValue1=document.getElementById("inputValue1").value;
+         const inputValue1Number1=parseFloat(inputValue1);
+
+         const totalPrice1=document.getElementById("totalPrice").innerText;
+         const totalPriceNumber1=parseFloat(totalPrice1);
+
+         const secondInputValue=document.getElementById("secondInputValue").value;
+         secondInputValueNumber=parseFloat(secondInputValue);
+
+         const CasePrice=document.getElementById("CasePrice").innerText;
+         const CasePriceNumber=parseFloat(CasePrice);
+
+         const subtotal=document.getElementById("subtotal").innerText;
+         const subtotalNumber=parseFloat(subtotal);
+
+         const tax=document.getElementById("tax").innerText;
+
+         const total=document.getElementById("total").innerText;
+
+         const newInputValue1=inputValue1Number1 - 1;
+         const NewCasePrice=59*secondInputValueNumber;
+         const newTotalPrice1=1219*newInputValue1;
+         const newSubTotal=newTotalPrice1 + NewCasePrice;
          const newTax=newSubTotal*0.1;
          const newTotal = newSubTotal + newTax;
 
@@ -120,9 +165,75 @@
          const secondInputValue=document.getElementById("secondInputValue").value;
          secondInputValueNumber=parseFloat(secondInputValue);
 
+         const CasePrice=document.getElementById("CasePrice").innerText;
+         const CasePriceNumber=parseFloat(CasePrice);
+
+         const inputValue1=document.getElementById("inputValue1").value;
+         const inputValue1Number1=parseFloat(inputValue1);
+
+         const totalPrice1=document.getElementById("totalPrice").innerText;
+         const totalPriceNumber1=parseFloat(totalPrice1);
+
+         const subtotal=document.getElementById("subtotal").innerText;
+         const subtotalNumber=parseFloat(subtotal);
+
+         const tax=document.getElementById("tax").innerText;
+
+         const total=document.getElementById("total").innerText;
+
+         const NewInputValueNumber=secondInputValueNumber + 1;
+         const NewCasePrice=59*NewInputValueNumber;
+         const newTotalPrice1=1219*inputValue1Number1;
+         const finalSubTotal=newTotalPrice1+NewCasePrice;
+         const FinalTax=finalSubTotal*0.1;
+         const FinalTotal= finalSubTotal + FinalTax ;
+
+         document.getElementById("secondInputValue").value=NewInputValueNumber;
+         document.getElementById("CasePrice").innerText=NewCasePrice;
+         document.getElementById("subtotal").innerText=finalSubTotal;
+         document.getElementById("tax").innerText=FinalTax;
+         document.getElementById("total").innerText=FinalTotal;
 
       })
       
+      // 2nd phone input minus button handle
+
+      const secondMinusButton=document.getElementById("2ndMinus");
+      secondMinusButton.addEventListener("click",function(){
+         const secondInputValue=document.getElementById("secondInputValue").value;
+         secondInputValueNumber=parseFloat(secondInputValue);
+
+         const CasePrice=document.getElementById("CasePrice").innerText;
+         const CasePriceNumber=parseFloat(CasePrice);
+
+         const inputValue1=document.getElementById("inputValue1").value;
+         const inputValue1Number1=parseFloat(inputValue1);
+
+         const totalPrice1=document.getElementById("totalPrice").innerText;
+         const totalPriceNumber1=parseFloat(totalPrice1);
+
+         const subtotal=document.getElementById("subtotal").innerText;
+         const subtotalNumber=parseFloat(subtotal);
+
+         const tax=document.getElementById("tax").innerText;
+
+         const total=document.getElementById("total").innerText;
+
+         const NewInputValueNumber=secondInputValueNumber - 1;
+         const NewCasePrice=59*NewInputValueNumber;
+         const newTotalPrice1=1219*inputValue1Number1;
+         const finalSubTotal=newTotalPrice1+NewCasePrice;
+         const FinalTax=finalSubTotal*0.1;
+         const FinalTotal= finalSubTotal + FinalTax ;
+
+         document.getElementById("secondInputValue").value=NewInputValueNumber;
+         document.getElementById("CasePrice").innerText=NewCasePrice;
+         document.getElementById("subtotal").innerText=finalSubTotal;
+         document.getElementById("tax").innerText=FinalTax;
+         document.getElementById("total").innerText=FinalTotal;
+
+      })
+
 
 
    </script>
