@@ -27,11 +27,11 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="number" min="0" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button class="btn btn-default"><i class="fas fa-minus" id="minusButton"></i></button>
+                           <input type="number" min="0" class="form-control text-center" id="inputValue1" value="1">
+                           <button class="btn btn-default"><i class="fas fa-plus" id="plusButton"></i></button>
                         </div>
-                        <h5>$1219</h5>
+                        <h5>$ <span id="totalPrice">1219</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -46,8 +46,8 @@
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
                            <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="number" min="0" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <input type="number" min="0" class="form-control text-center" id="secondInputValue" value="1">
+                           <button class="btn btn-default"><i class="fas fa-plus" id="2ndPlus"></i></button>
 
                         </div>
                         <h5>$59</h5>
@@ -60,15 +60,15 @@
                   <div class="row">
 
                      <div class="col-md-8">
-                        <h5>Subtotal: </h5>
+                        <h5>Subtotal:</h5>
                         <h5>Tax:</h5>
                         <h5>Total:</h5>
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$1,278</h5>
-                        <h5>$0</h5>
-                        <h5>$1,278</h5>
+                        <h5>$ <span id="subtotal">1,278</span></h5>
+                        <h5>$ <span id="tax">0</span> </h5>
+                        <h5>$ <span id="total">1,278</span></h5>
                      </div>
                   </div>
                </div>
@@ -82,6 +82,46 @@
 
    <script>
 
+      // 1st phone input plus button handle
+
+      const firstPlusButton=document.getElementById("plusButton");
+      firstPlusButton.addEventListener("click",function(){
+         const inputValue1=document.getElementById("inputValue1").value;
+         const inputValue1Number1=parseFloat(inputValue1);
+
+         const totalPrice1=document.getElementById("totalPrice").innerText;
+         const totalPriceNumber1=parseFloat(totalPrice1);
+
+         const subtotal=document.getElementById("subtotal").innerText;
+         subtotalNumber=parseFloat(subtotal);
+
+         const tax=document.getElementById("tax").innerText;
+
+         const total=document.getElementById("total").innerText;
+
+         const newInputValue1=inputValue1Number1 +1;
+         const newTotalPrice1=1219*newInputValue1;
+         const newSubTotal=newTotalPrice1;
+         const newTax=newSubTotal*0.1;
+         const newTotal = newSubTotal + newTax;
+
+         document.getElementById("inputValue1").value=newInputValue1;
+         document.getElementById("totalPrice").innerText=newTotalPrice1;
+         document.getElementById("subtotal").innerText=newSubTotal;
+         document.getElementById("tax").innerText=newTax;
+         document.getElementById("total").innerText=newTotal;
+
+      })
+
+      // 2nd phone input plus button handle
+
+      const secondPlusButton=document.getElementById("2ndPlus");
+      secondPlusButton.addEventListener("click",function(){
+         const secondInputValue=document.getElementById("secondInputValue").value;
+         secondInputValueNumber=parseFloat(secondInputValue);
+
+
+      })
       
 
 
